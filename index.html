@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="lib/jquery-1.11.0.min.js"></script>
+    <script src="waterpipe.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Yaro Luchko</title>
+  </head>
+  <body>
+    <main>
+      <div
+        id="wavybg-wrapper"
+        style="position: fixed; width: 3840px; height:  2160px; left: 0; top: 0"
+      >
+        <canvas>Your browser does not support HTML5 canvas.</canvas>
+      </div>
+      <section class="info">
+      <h1>Yaro Luchko</h1>
+      <h2 id="typed"></h2>
+      <h3><a href="Yaro_Luchko_Resume.pdf">Resume</a></h3>
+    </section>
+    </main>
+  </body>
+  <script>
+    //generate random number between 0.2 and 0.5
+    var random = Math.random() * 0.3 + 0.2;
+    var smokyBG = $("#wavybg-wrapper").waterpipe({
+      //Default values
+      gradientStart: "#0055ff",
+      gradientEnd: "#ff0000",
+      smokeOpacity: Math.random() * 0.3 + 0.2,
+      numCircles: 1,
+      maxMaxRad: "auto",
+      minMaxRad: "auto",
+      minRadFactor: .4,
+      iterations: 8,
+      drawsPerFrame: 10,
+      lineWidth: Math.round(Math.random() * 2 + 2),
+      speed: 1,
+      bgColorInner: "FFB6C1",
+      bgColorOuter: "#CBC3E3",
+    });
+
+    // set a timeout and do nothing for 3 seconds
+    setTimeout(function () {
+      var typed = new Typed("#typed", {
+        strings: [
+          "Web Developer",
+          "MIT Computer Science Student",
+          "Software Engineer",
+        ],
+        showCursor: true,
+        cursorChar: "|",
+        autoInsertCss: true,
+        typeSpeed: 60,
+        backSpeed: 20,
+        backDelay: 2000,
+        loop: true,
+      });
+    }, 3000);
+  </script>
+</html>
